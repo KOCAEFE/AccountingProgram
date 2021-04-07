@@ -18,12 +18,12 @@ namespace AccountingProgram
 
         public void Delete(Stocks stocks)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("merhabas");
         }
 
         public void Update(Stocks stocks)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("merhabas");
         }
     }
 }
