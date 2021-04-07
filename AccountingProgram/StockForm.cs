@@ -16,7 +16,7 @@ namespace AccountingProgram
         {
             InitializeComponent();
         }
-        string sorgu = "select * from Stocks";
+        string sorgu = "select ProductName,ProductBarcode,StockRemaining from Products";
 
         DataBase dataBase = new DataBase();
         private void StockForm_Load(object sender, EventArgs e)

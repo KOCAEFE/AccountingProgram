@@ -18,7 +18,8 @@ namespace AccountingProgram
         }
         DataBase dataBase = new DataBase();
         ProductManager productManager = new ProductManager();
-        
+        string sorgu = "select*from Products";
+
         public void Clear()
         {
             tbxId.Clear();
@@ -27,8 +28,18 @@ namespace AccountingProgram
             tbxBuyingPrice.Clear();
             tbxSalePrice.Clear();
         }
-       
-            
+
+        Products newProduct()
+        {  
+            Products product = new Products();
+            product.ProductId = Convert.ToInt32(tbxId.Text);
+            product.ProductName = tbxProductName.Text;
+            product.ProductBarcode = tbxProductBarcode.Text;
+            product.BuyingPrice = Convert.ToDecimal(tbxBuyingPrice.Text);
+            product.SalesPrice = Convert.ToDecimal(tbxSalePrice.Text);
+            product.StockRemaining = default;
+            return product;
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Products newProduct()
@@ -45,7 +56,7 @@ namespace AccountingProgram
             dataBase.DataRetrieval(sorgu,dataGridView1);
             Clear();
         }
-        string sorgu = "select*from Products";
+       
 
         private void NewProductForm_Load(object sender, EventArgs e)
         {
@@ -71,26 +82,14 @@ namespace AccountingProgram
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            Products product = new Products();
-            product.ProductId = Convert.ToInt32(tbxId.Text);
-            productManager.Delete(product);
+            productManager.Delete(newProduct());
             dataBase.DataRetrieval(sorgu,dataGridView1);
             Clear();
             
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            Products newProduct()
-            {
-                Products product = new Products();
-                product.ProductId = Convert.ToInt32(tbxId.Text);
-                product.ProductName = tbxProductName.Text;
-                product.ProductBarcode = tbxProductBarcode.Text;
-                product.BuyingPrice = Convert.ToDecimal(tbxBuyingPrice.Text);
-                product.SalesPrice = Convert.ToDecimal(tbxSalePrice.Text);
-                return product;
-            }
+        { 
             productManager.Update(newProduct());
             dataBase.DataRetrieval(sorgu,dataGridView1);
             Clear();
@@ -104,7 +103,9 @@ namespace AccountingProgram
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.dataGridView1.Columns["ProductId"].Visible = false;
-            
+            this.dataGridView1.Columns["StockRemaining"].Visible = false;
+
+
         }
     }
 }

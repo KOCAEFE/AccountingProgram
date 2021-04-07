@@ -13,13 +13,15 @@ namespace AccountingProgram
     {
         DataBase dataBase = new DataBase();
         SqlCommand command;
+        SqlDataReader sdr;
         public void Add(Products product)
         {
-            command = new SqlCommand("insert into Products Values(@name,@barcodeno,@buyingprice,@salesprice)", dataBase.connection);
+            command = new SqlCommand("insert into Products Values(@name,@barcodeno,@buyingprice,@salesprice,@stock)", dataBase.connection);
             command.Parameters.AddWithValue("@name", product.ProductName);
             command.Parameters.AddWithValue("@barcodeno", product.ProductBarcode);
             command.Parameters.AddWithValue("@buyingprice", product.BuyingPrice);
             command.Parameters.AddWithValue("@salesprice", product.SalesPrice);
+            command.Parameters.AddWithValue("@stock", product.StockRemaining);
             dataBase.connection.Open();
             command.ExecuteNonQuery();
             dataBase.connection.Close();

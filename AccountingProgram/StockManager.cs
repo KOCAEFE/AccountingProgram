@@ -10,10 +10,10 @@ namespace AccountingProgram
     public class StockManager : IStockService
     {
         DataBase dataBase = new DataBase();
+        SqlCommand command;
         public void Add(Stocks stocks)
         {
-          
-            Console.WriteLine("merhabas");
+            Console.WriteLine("merhabassadasdas");
         }
 
         public void Delete(Stocks stocks)

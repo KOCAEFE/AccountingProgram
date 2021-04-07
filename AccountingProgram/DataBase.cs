@@ -35,8 +35,7 @@ namespace AccountingProgram
             dataGridView.DataSource = table;
             connection.Close();
         }
-        
-
+      
        
     }
 

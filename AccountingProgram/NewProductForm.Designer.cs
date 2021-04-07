@@ -57,7 +57,7 @@ namespace AccountingProgram
             // tbxProductName
             // 
             this.tbxProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxProductName.Location = new System.Drawing.Point(149, 12);
+            this.tbxProductName.Location = new System.Drawing.Point(178, 53);
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(147, 26);
             this.tbxProductName.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace AccountingProgram
             // tbxProductBarcode
             // 
             this.tbxProductBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxProductBarcode.Location = new System.Drawing.Point(460, 9);
+            this.tbxProductBarcode.Location = new System.Drawing.Point(489, 50);
             this.tbxProductBarcode.MaxLength = 13;
             this.tbxProductBarcode.Name = "tbxProductBarcode";
             this.tbxProductBarcode.Size = new System.Drawing.Size(147, 26);
@@ -89,7 +89,7 @@ namespace AccountingProgram
             // tbxSalePrice
             // 
             this.tbxSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxSalePrice.Location = new System.Drawing.Point(460, 70);
+            this.tbxSalePrice.Location = new System.Drawing.Point(489, 111);
             this.tbxSalePrice.Name = "tbxSalePrice";
             this.tbxSalePrice.Size = new System.Drawing.Size(147, 26);
             this.tbxSalePrice.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace AccountingProgram
             // tbxBuyingPrice
             // 
             this.tbxBuyingPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxBuyingPrice.Location = new System.Drawing.Point(149, 70);
+            this.tbxBuyingPrice.Location = new System.Drawing.Point(178, 111);
             this.tbxBuyingPrice.Name = "tbxBuyingPrice";
             this.tbxBuyingPrice.Size = new System.Drawing.Size(147, 26);
             this.tbxBuyingPrice.TabIndex = 3;
@@ -108,7 +108,7 @@ namespace AccountingProgram
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(30, 15);
+            this.label1.Location = new System.Drawing.Point(59, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 0;
@@ -118,7 +118,7 @@ namespace AccountingProgram
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(338, 12);
+            this.label2.Location = new System.Drawing.Point(367, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 20);
             this.label2.TabIndex = 0;
@@ -128,7 +128,7 @@ namespace AccountingProgram
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(340, 73);
+            this.label4.Location = new System.Drawing.Point(369, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 0;
@@ -138,7 +138,7 @@ namespace AccountingProgram
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(30, 73);
+            this.label3.Location = new System.Drawing.Point(59, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 20);
             this.label3.TabIndex = 0;
@@ -239,7 +239,7 @@ namespace AccountingProgram
             // 
             this.tbxId.Enabled = false;
             this.tbxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxId.Location = new System.Drawing.Point(460, 9);
+            this.tbxId.Location = new System.Drawing.Point(489, 50);
             this.tbxId.Name = "tbxId";
             this.tbxId.Size = new System.Drawing.Size(147, 26);
             this.tbxId.TabIndex = 14;

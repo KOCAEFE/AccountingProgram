@@ -14,6 +14,7 @@ namespace AccountingProgram
         public string ProductBarcode { get; set; }
         public decimal BuyingPrice { get; set; }
         public decimal SalesPrice { get; set; }
-        
+        public Int16 StockRemaining { get; set; }
+
     }
 }

@@ -10,6 +10,6 @@ namespace AccountingProgram
     {
         public int StockId { get; set; }
         public int ProductId { get; set; }
-        public Int16 StockRemaining { get; set; }
+       
     }
 }
