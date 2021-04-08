@@ -67,6 +67,7 @@ namespace AccountingProgram
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            
             dataBase.DataSearch(tbxsearch,dataGridView1);
         }
 

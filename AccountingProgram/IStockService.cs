@@ -8,8 +8,8 @@ namespace AccountingProgram
 {
     public interface IStockService
     {
-        void Add(Stocks stocks);
-        void Update(Stocks stocks);
-        void Delete(Stocks stocks);
+        
+        void Update(Products products, Int16 stock);
+        void Delete(Products products, Int16 stock);
     }
 }

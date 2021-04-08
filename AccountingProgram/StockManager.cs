@@ -11,19 +11,26 @@ namespace AccountingProgram
     {
         DataBase dataBase = new DataBase();
         SqlCommand command;
-        public void Add(Stocks stocks)
+
+
+        public void Delete(Products products,Int16 stock)
         {
-            Console.WriteLine("merhabassadasdas");
+            command = new SqlCommand("update Products set StockRemaining=StockRemaining -'" + stock + "' where ProductId=@id", dataBase.connection);
+            command.Parameters.AddWithValue("@id", products.ProductId);
+            dataBase.connection.Open();
+            command.ExecuteNonQuery();
+            dataBase.connection.Close();
         }
 
-        public void Delete(Stocks stocks)
+        public void Update(Products products,Int16 stock)
         {
-            Console.WriteLine("merhabas");
-        }
+            command = new SqlCommand("update Products set StockRemaining=StockRemaining +'" + stock + "' where ProductId=@id", dataBase.connection);
+            command.Parameters.AddWithValue("@id", products.ProductId);
+            dataBase.connection.Open();
+            command.ExecuteNonQuery();
+            dataBase.connection.Close();
 
-        public void Update(Stocks stocks)
-        {
-            Console.WriteLine("merhabas");
+
         }
     }
 }

@@ -92,7 +92,6 @@
       <DependentUpon>StockForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StockManager.cs" />
-    <Compile Include="Stocks.cs" />
     <Compile Include="Users.cs" />
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
