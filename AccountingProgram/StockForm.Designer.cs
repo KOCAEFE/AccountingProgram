@@ -161,7 +161,7 @@ namespace AccountingProgram
             // 
             // btndelete
             // 
-            this.btndelete.Location = new System.Drawing.Point(543, 153);
+            this.btndelete.Location = new System.Drawing.Point(508, 192);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(74, 32);
             this.btndelete.TabIndex = 22;
