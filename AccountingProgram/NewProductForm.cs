@@ -18,7 +18,7 @@ namespace AccountingProgram
         }
         DataBase dataBase = new DataBase();
         ProductManager productManager = new ProductManager();
-        string sorgu = "select*from Products";
+        string sorgu = "select *from Products";
 
         public void Clear()
         {
