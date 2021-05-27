@@ -94,6 +94,7 @@ namespace AccountingProgram
             this.btnMenuBarcode.TabIndex = 3;
             this.btnMenuBarcode.Text = "               Barkod                 Oluştur";
             this.btnMenuBarcode.UseVisualStyleBackColor = true;
+            this.btnMenuBarcode.Click += new System.EventHandler(this.btnMenuBarcode_Click);
             // 
             // btnMenuReporting
             // 

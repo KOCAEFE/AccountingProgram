@@ -77,5 +77,10 @@ namespace AccountingProgram
         {
             MenuEkle(new StockForm());
         }
+
+        private void btnMenuBarcode_Click(object sender, EventArgs e)
+        {
+            MenuEkle(new CreateBarcodeForm());
+        }
     }
 }

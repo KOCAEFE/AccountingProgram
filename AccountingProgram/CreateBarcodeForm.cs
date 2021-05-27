@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace AccountingProgram
 {
     public partial class CreateBarcodeForm : Form
@@ -17,35 +16,73 @@ namespace AccountingProgram
         {
             InitializeComponent();
         }
+        BarcodeLib.Barcode barCode = new BarcodeLib.Barcode();
 
-        private void btbcreatebarcode_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-            pictureBox1.Image = barcode.Draw(tbxbarcode.Text,100);
+            if (txtBarcode.Text.Trim() == "")
+            {
+                MessageBox.Show("Input Barcode", "Msg", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (txtBarcode.Text.Trim() == "")
+            {
+                MessageBox.Show("Input Width", "Msg", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (txtBarcode.Text.Trim() == "")
+            {
+                MessageBox.Show("Input Height", "Msg", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            errorProvider1.Clear();
+            int nW = Convert.ToInt32(txtWidth.Text.Trim());
+            int nH = Convert.ToInt32(txtHeight.Text.Trim());
+            barCode.Alignment = BarcodeLib.AlignmentPositions.CENTER;
+            BarcodeLib.TYPE type = BarcodeLib.TYPE.UNSPECIFIED;
+            type = BarcodeLib.TYPE.CODE128;
+            try
+            {
+                if (type != BarcodeLib.TYPE.UNSPECIFIED)
+                {
+                    barCode.IncludeLabel = true;
+                    barCode.RotateFlipType = (RotateFlipType)Enum.Parse(typeof(RotateFlipType), "RotateNoneFlipNone", true);
+                    barcode.Image = barCode.Encode(type, txtBarcode.Text, Color.Black, Color.White, nW, nH);
+
+                }
+                barcode.Width = barcode.Image.Width;
+                barcode.Height = barcode.Image.Height;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
         }
 
-        private void btnaddword_Click(object sender, EventArgs e)
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            // Word uygulamasını oluşturuyoruz.
-            Microsoft.Office.Interop.Word.Application WordApp = new Microsoft.Office.Interop.Word.Application();
-            // Yeni doküman oluşturuyoruz.
-            WordApp.Documents.Add();
-            // word açılıyor.
-            WordApp.Visible = true;
-
-            Microsoft.Office.Interop.Word.Document doc = WordApp.ActiveDocument;
-            // OpenFileDialog ile seçim yapılması sağlanıyor.
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF";
-            ofd.Title = "Select Image To Insert....";
-            ofd.Multiselect = true;
-            if (ofd.ShowDialog() == DialogResult.OK)
+            using (Graphics graph = e.Graphics)
             {
-                foreach (string filename in ofd.FileNames)
+                for (int nJ = 0; nJ < 5; nJ++)
                 {
-                    doc.InlineShapes.AddPicture(filename, Type.Missing, Type.Missing, Type.Missing);
+                    int rowX = 0;
+
+                    int rowY = 0;
+                    for (int NI = 0; NI < 8; NI++)
+                    {
+                        graph.DrawImage(barcode.Image, rowY + 10, 5 + rowX);
+                        rowX = rowX + barcode.Width + 22;
+                    }
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            printDocument1.Print();
+        }
     }
 }
+
