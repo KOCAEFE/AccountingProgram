@@ -94,6 +94,7 @@ namespace AccountingProgram
             this.btnMenuBarcode.TabIndex = 3;
             this.btnMenuBarcode.Text = "               Barkod                 Oluştur";
             this.btnMenuBarcode.UseVisualStyleBackColor = true;
+            this.btnMenuBarcode.Click += new System.EventHandler(this.btnMenuBarcode_Click);
             // 
             // btnMenuReporting
             // 
@@ -137,6 +138,7 @@ namespace AccountingProgram
             this.btnMenuSales.TabIndex = 0;
             this.btnMenuSales.Text = "       Sipariş";
             this.btnMenuSales.UseVisualStyleBackColor = true;
+            this.btnMenuSales.Click += new System.EventHandler(this.btnMenuSales_Click);
             // 
             // panelTop
             // 
