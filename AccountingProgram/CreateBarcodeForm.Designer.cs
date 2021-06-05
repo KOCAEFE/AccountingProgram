@@ -159,7 +159,11 @@ namespace AccountingProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(992, 549);
+
+            this.ClientSize = new System.Drawing.Size(1003, 554);
+
             this.Controls.Add(this.barcode);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtBarcode);
