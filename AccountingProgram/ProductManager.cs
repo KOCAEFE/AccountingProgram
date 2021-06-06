@@ -13,7 +13,6 @@ namespace AccountingProgram
     {
         DataBase dataBase = new DataBase();
         SqlCommand command;
-        SqlDataReader sdr;
         public void Add(Products product)
         {
             command = new SqlCommand("insert into Products Values(@name,@barcodeno,@buyingprice,@salesprice,@stock)", dataBase.connection);

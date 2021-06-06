@@ -118,6 +118,7 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Orders.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="NewProductForm.cs">
       <SubType>Form</SubType>
@@ -134,6 +135,7 @@
     <Compile Include="SalesForm.Designer.cs">
       <DependentUpon>SalesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesManager.cs" />
     <Compile Include="StockForm.cs">
       <SubType>Form</SubType>
     </Compile>

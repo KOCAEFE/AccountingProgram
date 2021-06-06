@@ -61,6 +61,7 @@ namespace AccountingProgram
         private void NewProductForm_Load(object sender, EventArgs e)
         {
             
+            
             dataBase.DataRetrieval(sorgu,dataGridView1);
             
         }
