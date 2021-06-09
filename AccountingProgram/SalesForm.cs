@@ -16,6 +16,8 @@ namespace AccountingProgram
     {
         DataBase dataBase = new DataBase();
         SalesManager salesManager = new SalesManager();
+        SqlDataReader sdr;
+        SqlCommand command;
 
         public SalesForm()
         {
@@ -24,18 +26,25 @@ namespace AccountingProgram
         public void Ekle()
         {
             string barkod = txtbarcode.Text;
-            SqlCommand command = new SqlCommand("Select From Products Where ProductBarcode='" + barkod + "'", dataBase.connection);
+            command = new SqlCommand("Select ProductBarcode,ProductName,SalesPrice From Products Where ProductBarcode='" + barkod + "'", dataBase.connection);
             dataBase.connection.Open();
-            SqlDataReader sdr = command.ExecuteReader();
+            sdr = command.ExecuteReader();
             if (sdr.Read())
             {
-                listBox1.Items.Add(barkod);
+                command = new SqlCommand("insert into Orders values(@productid,@piece,@date)", dataBase.connection);
+                command.Parameters.AddWithValue("@productid", barkod);
+                command.Parameters.AddWithValue("@piece", Convert.ToInt16(txtPiece.Text));
+                command.Parameters.AddWithValue("@date", dateTimePicker1.Value);
+                dataBase.connection.Open();
+                command.ExecuteNonQuery();
+                dataBase.connection.Close();
             }
             else
             {
                 MessageBox.Show("hatalı");
             }
             dataBase.connection.Close();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

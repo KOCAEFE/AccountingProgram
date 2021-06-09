@@ -32,7 +32,7 @@ namespace AccountingProgram
         Products newProduct()
         {  
             Products product = new Products();
-            product.ProductId = Convert.ToInt32(tbxId.Text);
+            //product.ProductId = Convert.ToInt32(tbxId.Text);
             product.ProductName = tbxProductName.Text;
             product.ProductBarcode = tbxProductBarcode.Text;
             product.BuyingPrice = Convert.ToDecimal(tbxBuyingPrice.Text);
@@ -75,7 +75,7 @@ namespace AccountingProgram
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             //DataGridviewda tıklanılan satırın ilgili textboxlara dolması
-            tbxId.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //tbxId.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
             tbxProductName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             tbxProductBarcode.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             tbxBuyingPrice.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();

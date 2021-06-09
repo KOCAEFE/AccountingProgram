@@ -92,9 +92,9 @@ namespace AccountingProgram
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(156, 70);
+            this.listBox1.Location = new System.Drawing.Point(39, 70);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(259, 228);
+            this.listBox1.Size = new System.Drawing.Size(497, 308);
             this.listBox1.TabIndex = 12;
             // 
             // SalesForm
