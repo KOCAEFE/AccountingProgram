@@ -16,7 +16,7 @@ namespace AccountingProgram
         {
             InitializeComponent();
         }
-        string sorgu = "select ProductId, ProductName,ProductBarcode,StockRemaining from Products";
+        string sorgu = "select ProductName,ProductBarcode,StockRemaining from Products";
 
         DataBase dataBase = new DataBase();
         ProductManager productManager = new ProductManager();
@@ -35,23 +35,24 @@ namespace AccountingProgram
         }
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            this.dataGridView1.Columns["ProductId"].Visible = false;
+            //this.dataGridView1.Columns["ProductId"].Visible = false;
         }
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            tbxProductName.Text= dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            tbxProductBarcode.Text= dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            tbxProductName.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            tbxProductBarcode.Text= dataGridView1.CurrentRow.Cells[1].Value.ToString();
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Int16 sayi = Convert.ToInt16(tbxpiece.Text);
-           
-            
-           products.ProductId = Convert.ToInt32(textBox1.Text);
+
+
+            // products.ProductId = Convert.ToInt32(textBox1.Text);
+            products.ProductBarcode = tbxProductBarcode.Text;
 
             stockManager.Update(products, sayi);
             dataBase.DataRetrieval(sorgu, dataGridView1);
@@ -61,7 +62,8 @@ namespace AccountingProgram
         private void button2_Click(object sender, EventArgs e)
         {
             Int16 sayi = Convert.ToInt16(tbxpiece.Text);
-            products.ProductId= Convert.ToInt32(textBox1.Text);
+            // products.ProductId= Convert.ToInt32(textBox1.Text);
+            products.ProductBarcode = tbxProductBarcode.Text;
             stockManager.Delete(products, sayi);
             dataBase.DataRetrieval(sorgu, dataGridView1);
             Clear();

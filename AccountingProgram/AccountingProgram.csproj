@@ -118,7 +118,6 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Orders.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="NewProductForm.cs">
       <SubType>Form</SubType>

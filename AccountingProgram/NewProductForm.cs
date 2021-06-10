@@ -51,6 +51,7 @@ namespace AccountingProgram
                 product.SalesPrice = Convert.ToDecimal(tbxSalePrice.Text);
                 return product;
             }
+            
 
             productManager.Add(newProduct());
             dataBase.DataRetrieval(sorgu,dataGridView1);
@@ -74,12 +75,18 @@ namespace AccountingProgram
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            //Product ıd primary keyken kullanılan kodlar
             //DataGridviewda tıklanılan satırın ilgili textboxlara dolması
             //tbxId.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            tbxProductName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+           /* tbxProductName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             tbxProductBarcode.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             tbxBuyingPrice.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             tbxSalePrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+           */
+            tbxProductName.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            tbxProductBarcode.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            tbxBuyingPrice.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            tbxSalePrice.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -104,7 +111,7 @@ namespace AccountingProgram
 
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            this.dataGridView1.Columns["ProductId"].Visible = false;
+            //this.dataGridView1.Columns["ProductId"].Visible = false;
             this.dataGridView1.Columns["StockRemaining"].Visible = false;
 
 
