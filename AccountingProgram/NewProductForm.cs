@@ -69,8 +69,9 @@ namespace AccountingProgram
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
-            dataBase.DataSearch(tbxsearch,dataGridView1);
+            string sorgu2 = "select *from Products Where ProductName like'%" + tbxsearch.Text +
+              "%'OR ProductBarcode like'%" + tbxsearch.Text + "%'";
+            dataBase.DataSearch(sorgu2,dataGridView1);
         }
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)

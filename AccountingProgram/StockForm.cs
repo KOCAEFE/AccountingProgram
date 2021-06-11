@@ -16,7 +16,7 @@ namespace AccountingProgram
         {
             InitializeComponent();
         }
-        string sorgu = "select ProductName,ProductBarcode,StockRemaining from Products";
+        string sorgu = "select ProductName,ProductBarcode,StockRemaining from Products order by StockRemaining asc";
 
         DataBase dataBase = new DataBase();
         ProductManager productManager = new ProductManager();
@@ -71,7 +71,9 @@ namespace AccountingProgram
 
         private void tbxsearch_TextChanged(object sender, EventArgs e)
         {
-           
+            string sorgu2 = "select  ProductName,ProductBarcode,StockRemaining from Products Where ProductName like'%" + tbxsearch.Text +
+                "%'OR ProductBarcode like'%" + tbxsearch.Text + "%'";
+            dataBase.DataSearch(sorgu2, dataGridView1);
         }
     }
 }

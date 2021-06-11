@@ -26,11 +26,11 @@ namespace AccountingProgram
             dataGridView.DataSource = table;
             connection.Close();  
         }
-        public void DataSearch(TextBox textBox,DataGridView dataGridView)
+        public void DataSearch(string sorgu,DataGridView dataGridView)
         {
             connection.Open();
             DataTable table = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select *from Products Where ProductName like'%" + textBox.Text + "%'OR ProductBarcode like'%" + textBox.Text + "%'", connection);
+            SqlDataAdapter da = new SqlDataAdapter(sorgu, connection);
             da.Fill(table);
             dataGridView.DataSource = table;
             connection.Close();

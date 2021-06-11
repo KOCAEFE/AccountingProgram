@@ -79,7 +79,7 @@ namespace AccountingProgram
             sayi = rnd.Next();
             List<string> idlist = new List<string>();
 
-            command = new SqlCommand("select * from deneme", dataBase.connection);
+            command = new SqlCommand("select * from Orders", dataBase.connection);
             dataBase.connection.Open();
             sdr = command.ExecuteReader();
             while (sdr.Read())
@@ -112,7 +112,7 @@ namespace AccountingProgram
             {
 
 
-                command = new SqlCommand("insert into Deneme(Id,ProductBarcode,ProductName,Piece,SalesPrice,TotalPrice,Date)" +
+                command = new SqlCommand("insert into Orders(Id,ProductBarcode,ProductName,Piece,SalesPrice,TotalPrice,Date)" +
                     " values(@id,@barcode,@name,@piece,@salesprice,@totalprice,@date)", dataBase.connection);
                 command.Parameters.AddWithValue("@id", dataGridView1.Rows[i].Cells[0].Value);
                 command.Parameters.AddWithValue("@barcode", Convert.ToString(dataGridView1.Rows[i].Cells[2].Value));
