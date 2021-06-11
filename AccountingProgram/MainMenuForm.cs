@@ -82,13 +82,12 @@ namespace AccountingProgram
         {
             MenuEkle(new CreateBarcodeForm());
         }
-<<<<<<< HEAD
+
 
         private void btnMenuSales_Click(object sender, EventArgs e)
         {
-            MenuEkle(new SalesForm());
+            MenuEkle(new OrderForm());
         }
-=======
->>>>>>> 4749a01859e641936e0b15a6a430e3f0bbec27a3
+
     }
 }
