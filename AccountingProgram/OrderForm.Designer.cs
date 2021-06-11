@@ -95,7 +95,8 @@ namespace AccountingProgram
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(390, 581);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(452, 581);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 29);
             this.label3.TabIndex = 4;
@@ -105,7 +106,8 @@ namespace AccountingProgram
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(530, 530);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(446, 581);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 29);
             this.label4.TabIndex = 5;
@@ -149,7 +151,7 @@ namespace AccountingProgram
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(743, 466);
+            this.dataGridView1.Size = new System.Drawing.Size(727, 466);
             this.dataGridView1.TabIndex = 9;
             // 
             // btndelete
