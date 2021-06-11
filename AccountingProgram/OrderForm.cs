@@ -14,7 +14,6 @@ namespace AccountingProgram
     public partial class OrderForm : Form
     {
         DataBase dataBase = new DataBase();
-        SalesManager salesManager = new SalesManager();
         SqlDataReader sdr;
         SqlCommand command;
         DataTable table = new DataTable();
