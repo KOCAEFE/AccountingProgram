@@ -58,6 +58,17 @@ namespace AccountingProgram
             dataBase.connection.Close();
         }
 
+        void UrunCikar()
+        {
+            if (dataGridView1.SelectedRows.Count>0)
+            {
+                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            }
+            else
+            {
+                MessageBox.Show("SEÇİLECEK ");
+            }
+        }
         private void btnadd_Click(object sender, EventArgs e)
         {
             Ekle();
@@ -120,6 +131,11 @@ namespace AccountingProgram
         private void btncomplete_Click(object sender, EventArgs e)
         {
             SiparisTamamla();
+        }
+
+        private void btndelete_Click(object sender, EventArgs e)
+        {
+            UrunCikar();
         }
     }
 }

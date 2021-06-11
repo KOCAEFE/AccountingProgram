@@ -39,13 +39,13 @@ namespace AccountingProgram
             this.btnadd = new System.Windows.Forms.Button();
             this.btncomplete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btndelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtbarcode
             // 
-            this.txtbarcode.Location = new System.Drawing.Point(132, 50);
+            this.txtbarcode.Location = new System.Drawing.Point(121, 19);
             this.txtbarcode.MaxLength = 13;
             this.txtbarcode.Name = "txtbarcode";
             this.txtbarcode.Size = new System.Drawing.Size(132, 22);
@@ -53,7 +53,7 @@ namespace AccountingProgram
             // 
             // txtPiece
             // 
-            this.txtPiece.Location = new System.Drawing.Point(379, 51);
+            this.txtPiece.Location = new System.Drawing.Point(357, 19);
             this.txtPiece.Name = "txtPiece";
             this.txtPiece.Size = new System.Drawing.Size(139, 22);
             this.txtPiece.TabIndex = 1;
@@ -62,7 +62,7 @@ namespace AccountingProgram
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(36, 44);
+            this.label1.Location = new System.Drawing.Point(25, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 29);
             this.label1.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace AccountingProgram
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(311, 44);
+            this.label2.Location = new System.Drawing.Point(279, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 29);
             this.label2.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace AccountingProgram
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(392, 518);
+            this.label3.Location = new System.Drawing.Point(444, 543);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 29);
             this.label3.TabIndex = 4;
@@ -92,14 +92,14 @@ namespace AccountingProgram
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(478, 518);
+            this.label4.Location = new System.Drawing.Point(530, 530);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 29);
             this.label4.TabIndex = 5;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(811, 48);
+            this.dateTimePicker1.Location = new System.Drawing.Point(449, 181);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 6;
@@ -108,9 +108,9 @@ namespace AccountingProgram
             // btnadd
             // 
             this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnadd.Location = new System.Drawing.Point(566, 44);
+            this.btnadd.Location = new System.Drawing.Point(519, 12);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(140, 39);
+            this.btnadd.Size = new System.Drawing.Size(103, 39);
             this.btnadd.TabIndex = 7;
             this.btnadd.Text = "Ekle";
             this.btnadd.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@ namespace AccountingProgram
             // btncomplete
             // 
             this.btncomplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btncomplete.Location = new System.Drawing.Point(38, 505);
+            this.btncomplete.Location = new System.Drawing.Point(94, 530);
             this.btncomplete.Name = "btncomplete";
             this.btncomplete.Size = new System.Drawing.Size(247, 54);
             this.btncomplete.TabIndex = 8;
@@ -129,30 +129,33 @@ namespace AccountingProgram
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 68);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(681, 384);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(738, 425);
             this.dataGridView1.TabIndex = 9;
             // 
-            // label5
+            // btndelete
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(508, 518);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 29);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "₺";
+            this.btndelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btndelete.Location = new System.Drawing.Point(654, 12);
+            this.btndelete.Name = "btndelete";
+            this.btndelete.Size = new System.Drawing.Size(103, 39);
+            this.btndelete.TabIndex = 10;
+            this.btndelete.Text = "Çıkar";
+            this.btndelete.UseVisualStyleBackColor = true;
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 651);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(1021, 651);
+            this.Controls.Add(this.btndelete);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btncomplete);
             this.Controls.Add(this.btnadd);
@@ -185,6 +188,6 @@ namespace AccountingProgram
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.Button btncomplete;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btndelete;
     }
 }
