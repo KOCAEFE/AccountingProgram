@@ -63,7 +63,7 @@ namespace AccountingProgram
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(200, 650);
+            this.panelMenu.Size = new System.Drawing.Size(200, 711);
             this.panelMenu.TabIndex = 0;
             // 
             // btnNewProduct
@@ -150,7 +150,7 @@ namespace AccountingProgram
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(200, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(908, 50);
+            this.panelTop.Size = new System.Drawing.Size(1222, 50);
             this.panelTop.TabIndex = 1;
             // 
             // btnminimize
@@ -158,7 +158,7 @@ namespace AccountingProgram
             this.btnminimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnminimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnminimize.Image = ((System.Drawing.Image)(resources.GetObject("btnminimize.Image")));
-            this.btnminimize.Location = new System.Drawing.Point(753, 13);
+            this.btnminimize.Location = new System.Drawing.Point(1067, 13);
             this.btnminimize.Name = "btnminimize";
             this.btnminimize.Size = new System.Drawing.Size(25, 25);
             this.btnminimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -171,7 +171,7 @@ namespace AccountingProgram
             this.btnrestoredown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnrestoredown.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnrestoredown.Image = ((System.Drawing.Image)(resources.GetObject("btnrestoredown.Image")));
-            this.btnrestoredown.Location = new System.Drawing.Point(814, 12);
+            this.btnrestoredown.Location = new System.Drawing.Point(1128, 12);
             this.btnrestoredown.Name = "btnrestoredown";
             this.btnrestoredown.Size = new System.Drawing.Size(25, 25);
             this.btnrestoredown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -185,7 +185,7 @@ namespace AccountingProgram
             this.btnmaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnmaximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmaximize.Image = ((System.Drawing.Image)(resources.GetObject("btnmaximize.Image")));
-            this.btnmaximize.Location = new System.Drawing.Point(814, 12);
+            this.btnmaximize.Location = new System.Drawing.Point(1128, 12);
             this.btnmaximize.Name = "btnmaximize";
             this.btnmaximize.Size = new System.Drawing.Size(25, 25);
             this.btnmaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -198,7 +198,7 @@ namespace AccountingProgram
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(871, 12);
+            this.btnExit.Location = new System.Drawing.Point(1185, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(25, 25);
             this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -224,14 +224,14 @@ namespace AccountingProgram
             this.panelfill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelfill.Location = new System.Drawing.Point(200, 50);
             this.panelfill.Name = "panelfill";
-            this.panelfill.Size = new System.Drawing.Size(908, 600);
+            this.panelfill.Size = new System.Drawing.Size(1222, 661);
             this.panelfill.TabIndex = 2;
             // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 650);
+            this.ClientSize = new System.Drawing.Size(1422, 711);
             this.Controls.Add(this.panelfill);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelMenu);

@@ -73,9 +73,36 @@ namespace AccountingProgram
         {
             Ekle();
         }
+        void YeniMusteri()
+        {
+            command = new SqlCommand("insert into Customers(CustomerName,CustomerLastName,City,Phone,Mail)" +
+                "values(@name,@lastname,@city,@phone,@mail)",dataBase.connection);
+            command.Parameters.AddWithValue("@name", txtname.Text);
+            command.Parameters.AddWithValue("@lastname", txtlastname.Text);
+            command.Parameters.AddWithValue("@city", cbxCity.Text);
+            command.Parameters.AddWithValue("@phone",txtphone.Text);
+            command.Parameters.AddWithValue("@mail", txtMail.Text);
+            dataBase.connection.Open();
+            command.ExecuteNonQuery();
+            dataBase.connection.Close();
+
+        }
+        void SehirDoldur()
+        {
+            command = new SqlCommand("select* from City", dataBase.connection);
+            dataBase.connection.Open();
+            sdr = command.ExecuteReader();
+            while (sdr.Read())
+            {
+                cbxCity.Items.Add(sdr["City"]);
+            }
+            dataBase.connection.Close();
+        }
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
+            groupBox1.Visible = false;
+            SehirDoldur();
             sayi = rnd.Next();
             List<string> idlist = new List<string>();
 
@@ -137,5 +164,7 @@ namespace AccountingProgram
         {
             UrunCikar();
         }
+
+        
     }
 }
