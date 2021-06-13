@@ -21,6 +21,7 @@ namespace AccountingProgram
         Random rnd = new Random();
         int siparisno;
         int sonid;
+        double toplam;
         public OrderForm()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace AccountingProgram
             txtbarcode.Clear();
             txtPiece.Clear();
         }
-        
+        //Müşteriler tablosuna eklenen son kaydın id'sini alır
         void SonId()
         {
             try
@@ -38,7 +39,7 @@ namespace AccountingProgram
                 dataBase.connection.Open();
                 command = new SqlCommand("select count(*) from Customers", dataBase.connection);
                 int sayi = (int)command.ExecuteScalar();
-                if (sayi>0)
+                if (sayi > 0)
                 {
                     command = new SqlCommand("select IDENT_CURRENT ('Customers')", dataBase.connection);
 
@@ -50,16 +51,15 @@ namespace AccountingProgram
             catch (Exception)
             {
 
-               
+
             }
-            
 
         }
-
+        //Kayıt olan müşteriye müşteri numarasını mail ile gönderir
         public void NewCustomerMessage()
         {
             SonId();
-            
+
             command = new SqlCommand("select *from customers where CustomerId='" + sonid + "'", dataBase.connection);
             dataBase.connection.Open();
             sdr = command.ExecuteReader();
@@ -86,6 +86,18 @@ namespace AccountingProgram
             }
             dataBase.connection.Close();
         }
+        void Tutar()
+        {
+            toplam = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+               
+                toplam = toplam + (Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
+                    * Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value));
+                label4.Text = /*" "*/ Convert.ToString(toplam);  //" ₺";
+
+            }
+        }
         public void UrunEkle()
         {
             command = new SqlCommand("select * from Products Where ProductBarcode=@barcode", dataBase.connection);
@@ -99,21 +111,15 @@ namespace AccountingProgram
                 table.Rows.Add(siparisno, sdr["ProductName"], txtbarcode.Text, txtPiece.Text, sdr["SalesPrice"],
                     dateTimePicker1.Value);
                 clear();
-                double toplam = 0;
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-
-                    toplam = toplam + (Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
-                        * Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value));
-                    label4.Text = /*" "*/ Convert.ToString(toplam);  //" ₺";
-                }
+                
+                
                 dataBase.connection.Close();
 
 
             }
             else
             {
-                MessageBox.Show("hata");
+                MessageBox.Show("hatalı ürün girişi");
             }
             dataBase.connection.Close();
         }
@@ -132,23 +138,38 @@ namespace AccountingProgram
         private void btnadd_Click(object sender, EventArgs e)
         {
             UrunEkle();
+            Tutar();
         }
-        void YeniMusteri()
+        void MusteriGetir()
         {
 
-            command = new SqlCommand("insert into Customers(CustomerName,CustomerLastName,City,Phone,Mail)" +
-                "values(@name,@lastname,@city,@phone,@mail)", dataBase.connection);
-            command.Parameters.AddWithValue("@name", txtname.Text);
-            command.Parameters.AddWithValue("@lastname", txtlastname.Text);
-            command.Parameters.AddWithValue("@city", cbxCity.Text);
-            command.Parameters.AddWithValue("@phone", txtphone.Text);
-            command.Parameters.AddWithValue("@mail", txtMail.Text);
-            dataBase.connection.Open();
-            command.ExecuteNonQuery();
-            dataBase.connection.Close();
+            if (txtphone.TextLength==10)
+            {
+                dataBase.connection.Open();
+                command = new SqlCommand("Select * from Customers Where Phone=@phone", dataBase.connection);
+                command.Parameters.AddWithValue("@phone", txtphone.Text);
+                sdr = command.ExecuteReader();
+                if (sdr.Read())
+                {
+                    txtname.Text = (string)sdr["CustomerName"];
+                    txtlastname.Text = (string)sdr["CustomerLastName"];
+                    cbxCity.Text = (string)sdr["City"];
+                    cbxDistrict.Text = (string)sdr["District"];
+                    txtaddress.Text = (string)sdr["Address"];
+                    txtMail.Text = (string)sdr["Mail"];
+
+                    btnNewCustomer.Visible = false;
+                }
+
+                dataBase.connection.Close();
+
+            }
+
+
 
         }
-        void YeniMusteri2()
+        
+        void YeniMusteri()
         {
             try
             {
@@ -161,11 +182,13 @@ namespace AccountingProgram
                     if (txtlastname.Text!=""&& txtname.Text != "" && txtphone.Text != "")
                     {
                         dataBase.connection.Open();
-                        command = new SqlCommand("insert into Customers(CustomerName,CustomerLastName,City,Phone,Mail)" +
-                        "values(@name,@lastname,@city,@phone,@mail)", dataBase.connection);
+                        command = new SqlCommand("insert into Customers(CustomerName,CustomerLastName,City,District,Address,Phone,Mail)" +
+                        "values(@name,@lastname,@city,@district,@address,@phone,@mail)", dataBase.connection);
                         command.Parameters.AddWithValue("@name", txtname.Text);
                         command.Parameters.AddWithValue("@lastname", txtlastname.Text);
                         command.Parameters.AddWithValue("@city", cbxCity.Text);
+                        command.Parameters.AddWithValue("@district", cbxDistrict.Text);
+                        command.Parameters.AddWithValue("@address", txtaddress.Text);
                         command.Parameters.AddWithValue("@phone", txtphone.Text);
                         command.Parameters.AddWithValue("@mail", txtMail.Text);
                         command.ExecuteNonQuery();
@@ -194,31 +217,33 @@ namespace AccountingProgram
                 if (sonuc>0)
                 {
                     MessageBox.Show("KAYITLI MÜŞTERİ");
+
                 }
                 
             }
             catch (Exception)
             {
-
+               
                 MessageBox.Show("kayıt hatalı");
             }
         }
-        void SehirDoldur()
+        void SehirEkle()
         {
             command = new SqlCommand("select* from City", dataBase.connection);
             dataBase.connection.Open();
             sdr = command.ExecuteReader();
             while (sdr.Read())
             {
-                cbxCity.Items.Add(sdr["City"]);
+                cbxCity.Items.Add(sdr["CityName"]);
             }
             dataBase.connection.Close();
         }
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            SehirDoldur();
+            SehirEkle();
             siparisno = rnd.Next();
+            
             List<string> idlist = new List<string>();
 
             command = new SqlCommand("select * from Orders", dataBase.connection);
@@ -274,12 +299,39 @@ namespace AccountingProgram
         private void btndelete_Click(object sender, EventArgs e)
         {
             UrunCikar();
+            Tutar();
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-             YeniMusteri2();
+             //YeniMusteri();
             NewCustomerMessage();
+        }
+
+        private void cbxCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxDistrict.Items.Clear();
+            cbxDistrict.Text = "";
+            if (btnNewCustomer.Visible == false)
+            {
+                dataBase.connection.Open();
+                command = new SqlCommand("select * From District where CityId=@city", dataBase.connection);
+                command.Parameters.AddWithValue("@city", cbxCity.SelectedIndex + 1);
+                sdr = command.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    cbxDistrict.Items.Add(sdr["DistrictName"]);
+                }
+                dataBase.connection.Close();
+
+            }
+
+        }
+
+        private void txtphone_TextChanged_1(object sender, EventArgs e)
+        {
+            MusteriGetir();
         }
     }
 }
