@@ -21,17 +21,30 @@ namespace AccountingProgram
         Random rnd = new Random();
         int siparisno;
         int sonid;
+        int musteriid;
         double toplam;
         public OrderForm()
         {
             InitializeComponent();
         }
-        void clear()
+        void Productclear()
         {
             txtbarcode.Clear();
             txtPiece.Clear();
         }
-        //Müşteriler tablosuna eklenen son kaydın id'sini alır
+        void CustomerClear()
+        {
+            txtname.Clear();
+            txtlastname.Clear();
+            txtbarcode.Clear();
+            txtaddress.Clear();
+            txtMail.Clear();
+            txtphone.Clear();
+            cbxCity.Text = "";
+            cbxDistrict.Text = "";
+
+        }
+        //Müşteriler tablosuna eklenen son kaydın id'sini alır mesaj göndermek için
         void SonId()
         {
             try
@@ -97,6 +110,7 @@ namespace AccountingProgram
                 label4.Text = /*" "*/ Convert.ToString(toplam);  //" ₺";
 
             }
+            
         }
         public void UrunEkle()
         {
@@ -110,7 +124,8 @@ namespace AccountingProgram
                 dataGridView1.DataSource = table;
                 table.Rows.Add(siparisno, sdr["ProductName"], txtbarcode.Text, txtPiece.Text, sdr["SalesPrice"],
                     dateTimePicker1.Value);
-                clear();
+                Productclear();
+               
                 
                 
                 dataBase.connection.Close();
@@ -142,7 +157,6 @@ namespace AccountingProgram
         }
         void MusteriGetir()
         {
-
             if (txtphone.TextLength==10)
             {
                 dataBase.connection.Open();
@@ -157,11 +171,14 @@ namespace AccountingProgram
                     cbxDistrict.Text = (string)sdr["District"];
                     txtaddress.Text = (string)sdr["Address"];
                     txtMail.Text = (string)sdr["Mail"];
+                    musteriid = (int)sdr["CustomerId"];
 
                     btnNewCustomer.Visible = false;
+                    btnClear.Visible=true;     
                 }
 
                 dataBase.connection.Close();
+                SehirEkle();
 
             }
 
@@ -182,8 +199,8 @@ namespace AccountingProgram
                     if (txtlastname.Text!=""&& txtname.Text != "" && txtphone.Text != "")
                     {
                         dataBase.connection.Open();
-                        command = new SqlCommand("insert into Customers(CustomerName,CustomerLastName,City,District,Address,Phone,Mail)" +
-                        "values(@name,@lastname,@city,@district,@address,@phone,@mail)", dataBase.connection);
+                        command = new SqlCommand("insert into Customers(CustomerName,CustomerLastName,City,District,Address,Phone,Mail,Date)" +
+                        "values(@name,@lastname,@city,@district,@address,@phone,@mail,@date)", dataBase.connection);
                         command.Parameters.AddWithValue("@name", txtname.Text);
                         command.Parameters.AddWithValue("@lastname", txtlastname.Text);
                         command.Parameters.AddWithValue("@city", cbxCity.Text);
@@ -191,9 +208,15 @@ namespace AccountingProgram
                         command.Parameters.AddWithValue("@address", txtaddress.Text);
                         command.Parameters.AddWithValue("@phone", txtphone.Text);
                         command.Parameters.AddWithValue("@mail", txtMail.Text);
+                        command.Parameters.AddWithValue("@date", dateTimePicker1.Value);
                         command.ExecuteNonQuery();
+                             
                         dataBase.connection.Close();
+                        btnNewCustomer.Visible = false;
                         MessageBox.Show("müşteri kaydedildi");
+                        
+                        NewCustomerMessage();
+                        MusteriGetir();
 
                     }
                     else
@@ -216,7 +239,10 @@ namespace AccountingProgram
                 }
                 if (sonuc>0)
                 {
-                    MessageBox.Show("KAYITLI MÜŞTERİ");
+                   
+                    MessageBox.Show("Müşteri zaten kayıtlı");
+                    btnNewCustomer.Visible = false;
+                    btnClear.Visible = true;
 
                 }
                 
@@ -241,7 +267,7 @@ namespace AccountingProgram
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            SehirEkle();
+            //SehirEkle();
             siparisno = rnd.Next();
             
             List<string> idlist = new List<string>();
@@ -273,27 +299,65 @@ namespace AccountingProgram
         }
         public void SiparisTamamla()
         {
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            try
             {
-                command = new SqlCommand("insert into Orders(Id,ProductBarcode,ProductName,Piece,SalesPrice,TotalPrice,Date)" +
-                    " values(@id,@barcode,@name,@piece,@salesprice,@totalprice,@date)", dataBase.connection);
-                command.Parameters.AddWithValue("@id", dataGridView1.Rows[i].Cells[0].Value);
-                command.Parameters.AddWithValue("@barcode", Convert.ToString(dataGridView1.Rows[i].Cells[2].Value));
-                command.Parameters.AddWithValue("@name", Convert.ToString(dataGridView1.Rows[i].Cells[1].Value));
-                command.Parameters.AddWithValue("@piece", Convert.ToInt16(dataGridView1.Rows[i].Cells[3].Value));
-                command.Parameters.AddWithValue("@salesprice", Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value));
-                command.Parameters.AddWithValue("@totalprice", Convert.ToDecimal(label4.Text));
-                command.Parameters.AddWithValue("@date", dateTimePicker1.Value);
-                dataBase.connection.Open();
-                command.ExecuteNonQuery();
-                dataBase.connection.Close();
+                if (btnNewCustomer.Visible == false )
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    {
+                        command = new SqlCommand("insert into Orders(Id,ProductBarcode,ProductName,Piece,SalesPrice,Date)" +
+                            " values(@id,@barcode,@name,@piece,@salesprice,@date)", dataBase.connection);
+                        //command.Parameters.AddWithValue("@id", dataGridView1.Rows[i].Cells[0].Value);
+                        command.Parameters.AddWithValue("@id", siparisno);
+                        command.Parameters.AddWithValue("@barcode", Convert.ToString(dataGridView1.Rows[i].Cells[2].Value));
+                        command.Parameters.AddWithValue("@name", Convert.ToString(dataGridView1.Rows[i].Cells[1].Value));
+                        command.Parameters.AddWithValue("@piece", Convert.ToInt16(dataGridView1.Rows[i].Cells[3].Value));
+                        command.Parameters.AddWithValue("@salesprice", Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value));
+                        command.Parameters.AddWithValue("@date", dateTimePicker1.Value);
+                        dataBase.connection.Open();
+                        command.ExecuteNonQuery();
+                        dataBase.connection.Close();
+                    }
+                    command = new SqlCommand("insert into TotalPrice(OrderID,TotalPrice,Date)values(@id,@totalprice,@date)", dataBase.connection);
+                    command.Parameters.AddWithValue("@id", siparisno);
+                    command.Parameters.AddWithValue("@totalprice", Convert.ToDecimal(label4.Text));
+                    command.Parameters.AddWithValue("@date", dateTimePicker1.Value);
+                    dataBase.connection.Open();
+                    command.ExecuteNonQuery();
+                    dataBase.connection.Close();
+
+                    command = new SqlCommand("insert into OrderDetails(OrderId,CustomerId,Date)values(@orderid,@customerid,@date)", dataBase.connection);
+                    command.Parameters.AddWithValue("@orderid", siparisno);
+                    command.Parameters.AddWithValue("@customerid", musteriid);
+                    command.Parameters.AddWithValue("@date", dateTimePicker1.Value);
+                    dataBase.connection.Open();
+                    command.ExecuteNonQuery();
+                    dataBase.connection.Close();
+                    CustomerClear();
+                    dataGridView1.Columns.Clear();
+                    label4.Text = "0";
+
+                }
+                else
+                {
+                    MessageBox.Show("müşteri bilgilerini giriniz");
+                }
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("ÜRÜN GİRİNİZ");
+            }
+           
+            
+          
 
         }
 
         private void btncomplete_Click(object sender, EventArgs e)
         {
             SiparisTamamla();
+            
         }
 
         private void btndelete_Click(object sender, EventArgs e)
@@ -304,15 +368,15 @@ namespace AccountingProgram
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-             //YeniMusteri();
-            NewCustomerMessage();
+             YeniMusteri();
+            //NewCustomerMessage();
         }
 
         private void cbxCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbxDistrict.Items.Clear();
             cbxDistrict.Text = "";
-            if (btnNewCustomer.Visible == false)
+            if (btnNewCustomer.Visible ==true)
             {
                 dataBase.connection.Open();
                 command = new SqlCommand("select * From District where CityId=@city", dataBase.connection);
@@ -332,6 +396,12 @@ namespace AccountingProgram
         private void txtphone_TextChanged_1(object sender, EventArgs e)
         {
             MusteriGetir();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            CustomerClear();
+           btnNewCustomer.Visible = true;
         }
     }
 }

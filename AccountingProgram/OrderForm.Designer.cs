@@ -56,6 +56,7 @@ namespace AccountingProgram
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -155,7 +156,7 @@ namespace AccountingProgram
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(727, 466);
+            this.dataGridView1.Size = new System.Drawing.Size(715, 484);
             this.dataGridView1.TabIndex = 9;
             // 
             // btndelete
@@ -171,6 +172,7 @@ namespace AccountingProgram
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.txtaddress);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbxDistrict);
@@ -189,24 +191,24 @@ namespace AccountingProgram
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(807, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(386, 573);
+            this.groupBox1.Size = new System.Drawing.Size(386, 561);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Müşteri Bilgileri";
             // 
             // txtaddress
             // 
-            this.txtaddress.Location = new System.Drawing.Point(142, 266);
+            this.txtaddress.Location = new System.Drawing.Point(142, 321);
             this.txtaddress.Multiline = true;
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(219, 65);
-            this.txtaddress.TabIndex = 17;
+            this.txtaddress.TabIndex = 7;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(16, 285);
+            this.label10.Location = new System.Drawing.Point(16, 340);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(82, 29);
             this.label10.TabIndex = 16;
@@ -215,16 +217,16 @@ namespace AccountingProgram
             // cbxDistrict
             // 
             this.cbxDistrict.FormattingEnabled = true;
-            this.cbxDistrict.Location = new System.Drawing.Point(142, 216);
+            this.cbxDistrict.Location = new System.Drawing.Point(142, 271);
             this.cbxDistrict.Name = "cbxDistrict";
             this.cbxDistrict.Size = new System.Drawing.Size(219, 33);
-            this.cbxDistrict.TabIndex = 15;
+            this.cbxDistrict.TabIndex = 6;
             // 
             // g
             // 
             this.g.AutoSize = true;
             this.g.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.g.Location = new System.Drawing.Point(16, 216);
+            this.g.Location = new System.Drawing.Point(16, 271);
             this.g.Name = "g";
             this.g.Size = new System.Drawing.Size(57, 29);
             this.g.TabIndex = 14;
@@ -232,9 +234,9 @@ namespace AccountingProgram
             // 
             // btnNewCustomer
             // 
-            this.btnNewCustomer.Location = new System.Drawing.Point(142, 474);
+            this.btnNewCustomer.Location = new System.Drawing.Point(206, 482);
             this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(193, 38);
+            this.btnNewCustomer.Size = new System.Drawing.Size(180, 38);
             this.btnNewCustomer.TabIndex = 12;
             this.btnNewCustomer.Text = "Kayıt";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
@@ -243,11 +245,11 @@ namespace AccountingProgram
             // txtphone
             // 
             this.txtphone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtphone.Location = new System.Drawing.Point(142, 358);
+            this.txtphone.Location = new System.Drawing.Point(142, 42);
             this.txtphone.MaxLength = 10;
             this.txtphone.Name = "txtphone";
             this.txtphone.Size = new System.Drawing.Size(219, 30);
-            this.txtphone.TabIndex = 13;
+            this.txtphone.TabIndex = 2;
             this.txtphone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtphone.TextChanged += new System.EventHandler(this.txtphone_TextChanged_1);
             // 
@@ -255,10 +257,10 @@ namespace AccountingProgram
             // 
             this.cbxCity.DropDownWidth = 200;
             this.cbxCity.FormattingEnabled = true;
-            this.cbxCity.Location = new System.Drawing.Point(142, 163);
+            this.cbxCity.Location = new System.Drawing.Point(142, 218);
             this.cbxCity.Name = "cbxCity";
             this.cbxCity.Size = new System.Drawing.Size(219, 33);
-            this.cbxCity.TabIndex = 12;
+            this.cbxCity.TabIndex = 5;
             this.cbxCity.SelectedIndexChanged += new System.EventHandler(this.cbxCity_SelectedIndexChanged);
             // 
             // txtMail
@@ -267,25 +269,25 @@ namespace AccountingProgram
             this.txtMail.Location = new System.Drawing.Point(142, 412);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(219, 30);
-            this.txtMail.TabIndex = 9;
+            this.txtMail.TabIndex = 8;
             this.txtMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtlastname
             // 
             this.txtlastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtlastname.Location = new System.Drawing.Point(142, 104);
+            this.txtlastname.Location = new System.Drawing.Point(142, 159);
             this.txtlastname.Name = "txtlastname";
             this.txtlastname.Size = new System.Drawing.Size(219, 30);
-            this.txtlastname.TabIndex = 6;
+            this.txtlastname.TabIndex = 4;
             this.txtlastname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtname
             // 
             this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtname.Location = new System.Drawing.Point(142, 47);
+            this.txtname.Location = new System.Drawing.Point(142, 102);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(219, 30);
-            this.txtname.TabIndex = 5;
+            this.txtname.TabIndex = 3;
             this.txtname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
@@ -302,7 +304,7 @@ namespace AccountingProgram
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(16, 358);
+            this.label8.Location = new System.Drawing.Point(16, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 29);
             this.label8.TabIndex = 3;
@@ -312,7 +314,7 @@ namespace AccountingProgram
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(16, 163);
+            this.label7.Location = new System.Drawing.Point(16, 218);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 29);
             this.label7.TabIndex = 2;
@@ -322,7 +324,7 @@ namespace AccountingProgram
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(16, 105);
+            this.label6.Location = new System.Drawing.Point(16, 160);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 29);
             this.label6.TabIndex = 1;
@@ -332,11 +334,21 @@ namespace AccountingProgram
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(16, 47);
+            this.label5.Location = new System.Drawing.Point(16, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 29);
             this.label5.TabIndex = 0;
             this.label5.Text = "AD:";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(6, 482);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(178, 38);
+            this.btnClear.TabIndex = 18;
+            this.btnClear.Text = "Temizle";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // OrderForm
             // 
@@ -396,5 +408,6 @@ namespace AccountingProgram
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbxDistrict;
         private System.Windows.Forms.Label g;
+        private System.Windows.Forms.Button btnClear;
     }
 }
