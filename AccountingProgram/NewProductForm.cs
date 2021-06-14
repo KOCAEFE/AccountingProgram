@@ -22,7 +22,6 @@ namespace AccountingProgram
 
         public void Clear()
         {
-            tbxId.Clear();
             tbxProductName.Clear();
             tbxProductBarcode.Clear();
             tbxBuyingPrice.Clear();
@@ -61,7 +60,7 @@ namespace AccountingProgram
 
         private void NewProductForm_Load(object sender, EventArgs e)
         {
-            
+            btnDelete.Visible = false;
             
             dataBase.DataRetrieval(sorgu,dataGridView1);
             

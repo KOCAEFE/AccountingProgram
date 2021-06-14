@@ -49,10 +49,10 @@ namespace AccountingProgram
             // 
             // barcode
             // 
-            this.barcode.Location = new System.Drawing.Point(583, 60);
+            this.barcode.Location = new System.Drawing.Point(760, 221);
             this.barcode.Name = "barcode";
-            this.barcode.Size = new System.Drawing.Size(352, 317);
-            this.barcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.barcode.Size = new System.Drawing.Size(352, 358);
+            this.barcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.barcode.TabIndex = 10;
             this.barcode.TabStop = false;
             // 
@@ -65,7 +65,8 @@ namespace AccountingProgram
             this.groupBox1.Controls.Add(this.txtWidth);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(39, 144);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.Location = new System.Drawing.Point(143, 199);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(490, 274);
             this.groupBox1.TabIndex = 9;
@@ -97,15 +98,15 @@ namespace AccountingProgram
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(205, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 17);
+            this.label3.Size = new System.Drawing.Size(30, 29);
             this.label3.TabIndex = 4;
             this.label3.Text = "X";
             // 
             // txtHeight
             // 
-            this.txtHeight.Location = new System.Drawing.Point(234, 82);
+            this.txtHeight.Location = new System.Drawing.Point(254, 85);
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(174, 22);
+            this.txtHeight.Size = new System.Drawing.Size(174, 34);
             this.txtHeight.TabIndex = 3;
             this.txtHeight.Text = "60";
             this.txtHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -114,7 +115,7 @@ namespace AccountingProgram
             // 
             this.txtWidth.Location = new System.Drawing.Point(24, 85);
             this.txtWidth.Name = "txtWidth";
-            this.txtWidth.Size = new System.Drawing.Size(162, 22);
+            this.txtWidth.Size = new System.Drawing.Size(162, 34);
             this.txtWidth.TabIndex = 2;
             this.txtWidth.Text = "130";
             this.txtWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -124,7 +125,7 @@ namespace AccountingProgram
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(286, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 17);
+            this.label2.Size = new System.Drawing.Size(116, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "Yükseklik";
             // 
@@ -133,14 +134,15 @@ namespace AccountingProgram
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(77, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.Size = new System.Drawing.Size(100, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Genişlik";
             // 
             // txtBarcode
             // 
             this.txtBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtBarcode.Location = new System.Drawing.Point(39, 33);
+            this.txtBarcode.Location = new System.Drawing.Point(143, 88);
+            this.txtBarcode.MaxLength = 13;
             this.txtBarcode.Multiline = true;
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(490, 84);
@@ -159,11 +161,7 @@ namespace AccountingProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(992, 549);
-
-            this.ClientSize = new System.Drawing.Size(1003, 554);
-
+            this.ClientSize = new System.Drawing.Size(1176, 601);
             this.Controls.Add(this.barcode);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtBarcode);
