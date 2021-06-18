@@ -41,6 +41,7 @@ namespace AccountingProgram
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btndelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.txtaddress = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbxDistrict = new System.Windows.Forms.ComboBox();
@@ -56,7 +57,6 @@ namespace AccountingProgram
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -195,6 +195,16 @@ namespace AccountingProgram
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Müşteri Bilgileri";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(6, 482);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(178, 38);
+            this.btnClear.TabIndex = 18;
+            this.btnClear.Text = "Temizle";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtaddress
             // 
@@ -340,20 +350,11 @@ namespace AccountingProgram
             this.label5.TabIndex = 0;
             this.label5.Text = "AD:";
             // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(6, 482);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(178, 38);
-            this.btnClear.TabIndex = 18;
-            this.btnClear.Text = "Temizle";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1274, 691);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btndelete);

@@ -47,13 +47,15 @@ namespace AccountingProgram
             // 
             // btnadd
             // 
+            this.btnadd.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnadd.Location = new System.Drawing.Point(226, 538);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(229, 46);
             this.btnadd.TabIndex = 0;
             this.btnadd.Text = "Ekle";
-            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.UseVisualStyleBackColor = false;
             this.btnadd.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
@@ -153,19 +155,22 @@ namespace AccountingProgram
             // 
             // btndelete
             // 
+            this.btndelete.BackColor = System.Drawing.Color.YellowGreen;
+            this.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btndelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btndelete.Location = new System.Drawing.Point(585, 538);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(229, 46);
             this.btndelete.TabIndex = 22;
             this.btndelete.Text = "Çıkar";
-            this.btndelete.UseVisualStyleBackColor = true;
+            this.btndelete.UseVisualStyleBackColor = false;
             this.btndelete.Click += new System.EventHandler(this.button2_Click);
             // 
             // StockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1122, 619);
             this.Controls.Add(this.btndelete);
             this.Controls.Add(this.label3);

@@ -9,7 +9,9 @@ namespace AccountingProgram
     public interface IProductService
     {
         void Add(Products product);
-        void Delete(Products product);
+        
         void Update(Products product);
+
+        void Delete(Products product);
     }
 }

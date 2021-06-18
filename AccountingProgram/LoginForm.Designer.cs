@@ -150,7 +150,7 @@ namespace AccountingProgram
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(454, 574);
+            this.ClientSize = new System.Drawing.Size(436, 574);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnForgotPassword);
             this.Controls.Add(this.label3);

@@ -14,10 +14,9 @@ namespace AccountingProgram
 
 
         public void Delete(Products products,Int16 stock)
-        {
-            /*command = new SqlCommand("update Products set StockRemaining=StockRemaining -'" + stock + "' where ProductId=@id", dataBase.connection);
-            command.Parameters.AddWithValue("@id", products.ProductId);*/
-            command = new SqlCommand("update Products set StockRemaining=StockRemaining -'" + stock + "' where ProductBarcode=@barcode", dataBase.connection);
+        { 
+            command = new SqlCommand("update Products set StockRemaining=StockRemaining -'" 
+                + stock + "' where ProductBarcode=@barcode", dataBase.connection);
             command.Parameters.AddWithValue("@barcode", products.ProductBarcode);
             dataBase.connection.Open();
             command.ExecuteNonQuery();
@@ -26,8 +25,6 @@ namespace AccountingProgram
 
         public void Update(Products products,Int16 stock)
         {
-           /* command = new SqlCommand("update Products set StockRemaining=StockRemaining +'" + stock + "' where ProductId=@id", dataBase.connection);
-            command.Parameters.AddWithValue("@id", products.ProductId);*/
             command = new SqlCommand("update Products set StockRemaining=StockRemaining +'" + stock + "' where ProductBarcode=@barcode", dataBase.connection);
             command.Parameters.AddWithValue("@barcode", products.ProductBarcode);
             dataBase.connection.Open();

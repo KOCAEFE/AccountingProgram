@@ -54,7 +54,7 @@ namespace AccountingProgram
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(207)))), ((int)(((byte)(216)))));
+            this.panelMenu.BackColor = System.Drawing.Color.DarkGray;
             this.panelMenu.Controls.Add(this.btnNewProduct);
             this.panelMenu.Controls.Add(this.btnMenuBarcode);
             this.panelMenu.Controls.Add(this.btnMenuReporting);
@@ -142,6 +142,7 @@ namespace AccountingProgram
             // 
             // panelTop
             // 
+            this.panelTop.BackColor = System.Drawing.SystemColors.Window;
             this.panelTop.Controls.Add(this.btnminimize);
             this.panelTop.Controls.Add(this.btnrestoredown);
             this.panelTop.Controls.Add(this.btnmaximize);
@@ -220,7 +221,7 @@ namespace AccountingProgram
             // 
             // panelfill
             // 
-            this.panelfill.BackColor = System.Drawing.SystemColors.Control;
+            this.panelfill.BackColor = System.Drawing.SystemColors.Window;
             this.panelfill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelfill.Location = new System.Drawing.Point(200, 50);
             this.panelfill.Name = "panelfill";
