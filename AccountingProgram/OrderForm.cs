@@ -63,8 +63,6 @@ namespace AccountingProgram
             }
             catch (Exception)
             {
-
-
             }
 
         }
@@ -76,7 +74,6 @@ namespace AccountingProgram
             command = new SqlCommand("select *from customers where CustomerId='" + sonid + "'", dataBase.connection);
             dataBase.connection.Open();
             sdr = command.ExecuteReader();
-
 
             if (sdr.Read())
             {
@@ -108,7 +105,6 @@ namespace AccountingProgram
                 toplam = toplam + (Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
                     * Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value));
                 label4.Text = /*" "*/ Convert.ToString(toplam);  //" ₺";
-
             }
             
         }
@@ -125,12 +121,8 @@ namespace AccountingProgram
                 table.Rows.Add(siparisno, sdr["ProductName"], txtbarcode.Text, txtPiece.Text, sdr["SalesPrice"],
                     dateTimePicker1.Value);
                 Productclear();
-               
-                
                 
                 dataBase.connection.Close();
-
-
             }
             else
             {
@@ -181,9 +173,6 @@ namespace AccountingProgram
                 SehirEkle();
 
             }
-
-
-
         }
         
         void YeniMusteri()
@@ -233,9 +222,7 @@ namespace AccountingProgram
                         {
                             MessageBox.Show("telefon boş bırakılamaz");
                         }
-                    }
-                        
-                    
+                    }      
                 }
                 if (sonuc>0)
                 {
@@ -349,9 +336,6 @@ namespace AccountingProgram
                 MessageBox.Show("ÜRÜN GİRİNİZ");
             }
            
-            
-          
-
         }
 
         private void btncomplete_Click(object sender, EventArgs e)
@@ -382,15 +366,12 @@ namespace AccountingProgram
                 command = new SqlCommand("select * From District where CityId=@city", dataBase.connection);
                 command.Parameters.AddWithValue("@city", cbxCity.SelectedIndex + 1);
                 sdr = command.ExecuteReader();
-
                 while (sdr.Read())
                 {
                     cbxDistrict.Items.Add(sdr["DistrictName"]);
                 }
                 dataBase.connection.Close();
-
             }
-
         }
 
         private void txtphone_TextChanged_1(object sender, EventArgs e)
@@ -401,7 +382,7 @@ namespace AccountingProgram
         private void btnClear_Click(object sender, EventArgs e)
         {
             CustomerClear();
-           btnNewCustomer.Visible = true;
+            btnNewCustomer.Visible = true;
         }
     }
 }
