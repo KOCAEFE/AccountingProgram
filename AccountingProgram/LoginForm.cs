@@ -30,11 +30,7 @@ namespace AccountingProgram
                 this.Hide();
                 mainMenuForm.Show();
             }
-            
-
-         
         }
-
         private void btnForgotPassword_Click(object sender, EventArgs e)
         {
             ForgotPassword forgotPasswordform = new ForgotPassword();

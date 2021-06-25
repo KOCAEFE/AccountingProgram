@@ -21,9 +21,13 @@ namespace AccountingProgram
         private void btnSendMail_Click(object sender, EventArgs e)
         {
             LoginManager loginManager = new LoginManager();
+             loginManager.SendMail(txtMail.Text);
+
+            LoginForm loginForm = new LoginForm();
+            this.Hide();
+            loginForm.Show();
             
 
-             loginManager.SendMail(txtMail.Text);
             //UsersDataBase usersDataBase = new UsersDataBase();
             //DataBase dataBase = new DataBase();
             //usersDataBase.Mail = txtMail.Text;
