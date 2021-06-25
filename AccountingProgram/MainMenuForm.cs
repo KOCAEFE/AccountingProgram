@@ -89,5 +89,9 @@ namespace AccountingProgram
             MenuEkle(new OrderForm());
         }
 
+        private void btnMenuReporting_Click(object sender, EventArgs e)
+        {
+            MenuEkle(new ReportForm());
+        }
     }
 }

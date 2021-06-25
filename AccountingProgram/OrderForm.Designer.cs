@@ -68,6 +68,7 @@ namespace AccountingProgram
             this.txtbarcode.Name = "txtbarcode";
             this.txtbarcode.Size = new System.Drawing.Size(132, 22);
             this.txtbarcode.TabIndex = 0;
+            this.txtbarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbarcode_KeyPress);
             // 
             // txtPiece
             // 
@@ -75,6 +76,7 @@ namespace AccountingProgram
             this.txtPiece.Name = "txtPiece";
             this.txtPiece.Size = new System.Drawing.Size(139, 22);
             this.txtPiece.TabIndex = 1;
+            this.txtPiece.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPiece_KeyPress);
             // 
             // label1
             // 
@@ -262,6 +264,7 @@ namespace AccountingProgram
             this.txtphone.TabIndex = 2;
             this.txtphone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtphone.TextChanged += new System.EventHandler(this.txtphone_TextChanged_1);
+            this.txtphone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtphone_KeyPress);
             // 
             // cbxCity
             // 

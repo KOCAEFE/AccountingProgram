@@ -102,6 +102,7 @@ namespace AccountingProgram
             this.tbxpiece.Name = "tbxpiece";
             this.tbxpiece.Size = new System.Drawing.Size(151, 22);
             this.tbxpiece.TabIndex = 16;
+            this.tbxpiece.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxpiece_KeyPress);
             // 
             // tbxProductName
             // 

@@ -75,5 +75,10 @@ namespace AccountingProgram
                 "%'OR ProductBarcode like'%" + tbxsearch.Text + "%'";
             dataBase.DataSearch(sorgu2, dataGridView1);
         }
+
+        private void tbxpiece_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

@@ -109,6 +109,7 @@ namespace AccountingProgram
             this.btnMenuReporting.TabIndex = 2;
             this.btnMenuReporting.Text = "           Raporlar";
             this.btnMenuReporting.UseVisualStyleBackColor = true;
+            this.btnMenuReporting.Click += new System.EventHandler(this.btnMenuReporting_Click);
             // 
             // btnMenuStock
             // 

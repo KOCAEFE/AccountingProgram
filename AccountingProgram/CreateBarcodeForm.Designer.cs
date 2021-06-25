@@ -114,6 +114,7 @@ namespace AccountingProgram
             this.txtHeight.TabIndex = 3;
             this.txtHeight.Text = "60";
             this.txtHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHeight_KeyPress);
             // 
             // txtWidth
             // 
@@ -123,6 +124,7 @@ namespace AccountingProgram
             this.txtWidth.TabIndex = 2;
             this.txtWidth.Text = "130";
             this.txtWidth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWidth_KeyPress);
             // 
             // label2
             // 
@@ -152,6 +154,7 @@ namespace AccountingProgram
             this.txtBarcode.Size = new System.Drawing.Size(490, 84);
             this.txtBarcode.TabIndex = 8;
             this.txtBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
             // 
             // errorProvider1
             // 

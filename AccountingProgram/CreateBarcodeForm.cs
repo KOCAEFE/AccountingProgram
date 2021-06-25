@@ -36,8 +36,10 @@ namespace AccountingProgram
                 return;
             }
             errorProvider1.Clear();
+            //barkod yükseklik genişlik
             int nW = Convert.ToInt32(txtWidth.Text.Trim());
             int nH = Convert.ToInt32(txtHeight.Text.Trim());
+            //barkod hizalama
             barCode.Alignment = BarcodeLib.AlignmentPositions.CENTER;
             BarcodeLib.TYPE type = BarcodeLib.TYPE.UNSPECIFIED;
             type = BarcodeLib.TYPE.CODE128;
@@ -45,7 +47,9 @@ namespace AccountingProgram
             {
                 if (type != BarcodeLib.TYPE.UNSPECIFIED)
                 {
+                    //etiketi true 
                     barCode.IncludeLabel = true;
+                    //döndürme tipi
                     barCode.RotateFlipType = (RotateFlipType)Enum.Parse(typeof(RotateFlipType), "RotateNoneFlipNone", true);
                     barcode.Image = barCode.Encode(type, txtBarcode.Text, Color.Black, Color.White, nW, nH);
 
@@ -82,6 +86,21 @@ namespace AccountingProgram
         private void button2_Click(object sender, EventArgs e)
         {
             printDocument1.Print();
+        }
+
+        private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtWidth_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtHeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

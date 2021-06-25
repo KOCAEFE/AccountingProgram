@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -157,6 +158,7 @@ namespace AccountingProgram
                 sdr = command.ExecuteReader();
                 if (sdr.Read())
                 {
+                    
                     txtname.Text = (string)sdr["CustomerName"];
                     txtlastname.Text = (string)sdr["CustomerLastName"];
                     cbxCity.Text = (string)sdr["City"];
@@ -166,7 +168,8 @@ namespace AccountingProgram
                     musteriid = (int)sdr["CustomerId"];
 
                     btnNewCustomer.Visible = false;
-                    btnClear.Visible=true;     
+                    btnClear.Visible=true;
+                    
                 }
 
                 dataBase.connection.Close();
@@ -358,6 +361,7 @@ namespace AccountingProgram
 
         private void cbxCity_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dataBase.connection.Close();
             cbxDistrict.Items.Clear();
             cbxDistrict.Text = "";
             if (btnNewCustomer.Visible ==true)
@@ -372,10 +376,12 @@ namespace AccountingProgram
                 }
                 dataBase.connection.Close();
             }
+            
         }
 
         private void txtphone_TextChanged_1(object sender, EventArgs e)
         {
+            
             MusteriGetir();
         }
 
@@ -384,5 +390,22 @@ namespace AccountingProgram
             CustomerClear();
             btnNewCustomer.Visible = true;
         }
+
+        private void txtPiece_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            
+        }
+
+        private void txtphone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtbarcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
+    
 }
