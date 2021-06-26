@@ -61,6 +61,7 @@ namespace AccountingProgram
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //
             dataBase.connection.Open();
             string cirosorgu = "select sum(totalprice) as Ciro from TotalPrice where date between @tarih1 and @tarih2";
             table = new DataTable();
