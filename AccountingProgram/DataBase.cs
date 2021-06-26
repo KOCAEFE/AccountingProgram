@@ -15,7 +15,8 @@ namespace AccountingProgram
     class DataBase
     {
         //public SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-97S6E8G;Initial Catalog=AccountingProgram;Integrated Security=True");
-        public SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ConnectionString);
+        public SqlConnection connection = new SqlConnection
+            (ConfigurationManager.ConnectionStrings["Connection"].ConnectionString);
 
         public void DataRetrieval(string sorgu,DataGridView dataGridView)
         {
