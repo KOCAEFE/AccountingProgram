@@ -67,7 +67,7 @@ namespace AccountingProgram
                 dataBase.DataRetrieval(sorgu, dataGridView1);
                 dateTimePicker1.Visible = true;
                 dateTimePicker2.Visible = true;
-                
+                button1.Visible = true;
             }
         }
 
