@@ -30,8 +30,6 @@ namespace AccountingProgram
             dataBase.connection.Open();
             command.ExecuteNonQuery();
             dataBase.connection.Close();
-
-
         }
     }
 }

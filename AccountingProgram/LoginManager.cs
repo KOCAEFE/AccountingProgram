@@ -13,23 +13,33 @@ namespace AccountingProgram
     {
         DataBase dataBase = new DataBase();
         public bool usercheck = true;
+      
         public void Login(string userName, string password)
         {
-            string query = "Select * From Users Where UserName='" + userName + "' And UserPassword='" + password + "'";
-            SqlCommand command = new SqlCommand(query, dataBase.connection);
-            dataBase.connection.Open();
-            SqlDataReader sdr = command.ExecuteReader();
+            try
+            {
+                string query = "Select * From Users Where UserName='" + userName + "' And UserPassword='" + password + "'";
+                SqlCommand command = new SqlCommand(query, dataBase.connection);
+                dataBase.connection.Open();
+                SqlDataReader sdr = command.ExecuteReader();
 
-            if (sdr.Read())
+                if (sdr.Read())
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("hatalı giriş");
+                    usercheck = false;
+                }
+                dataBase.connection.Close();
+            }
+            catch (Exception)
             {
 
+                throw;
             }
-            else
-            {
-                MessageBox.Show("hatalı giriş");
-                usercheck = false;
-            }
-            dataBase.connection.Close();
+           
         }
 
         public void SendMail(string mail)
